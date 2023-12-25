@@ -30,7 +30,7 @@ const Dashboard = () => {
           </li>
           <li className="mb-2 bg-white p-1 text-center font-semibold rounded-lg">
             <NavLink
-              to="mytask"
+              to="/dashboard/mytask"
               className={({ isActive, isPending }) =>
                 isPending ? "pending" : isActive ? " hover:text-[#458682] underline" : ""
               }

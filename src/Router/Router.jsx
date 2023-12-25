@@ -15,6 +15,7 @@ import AccessControl from "../Pages/AccessControl/AccessControl";
 import TaskCreation from "../Pages/TaskCreation/TaskCreation";
 import MyTask from "../Pages/MyTask/MyTask";
 import AllTask from "../Pages/AllTask/AllTask";
+import UpdateTask from "../Pages/UpdateTask/UpdateTask";
 const router = createBrowserRouter([
     {
       path: "/",
@@ -62,12 +63,16 @@ const router = createBrowserRouter([
       },
       
       {
-        path:"dashboard/mytask",
+        path:"/dashboard/mytask",
         element:<MyTask></MyTask>,
       },
       {
         path:"alltask",
         element:<AllTask></AllTask>,
+      },
+      {
+        path:"dashboard/updatetask",
+        element:<UpdateTask></UpdateTask>,
       }
     ],
   },
