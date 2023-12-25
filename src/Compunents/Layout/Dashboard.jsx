@@ -1,22 +1,26 @@
 import React, { useContext } from 'react';
-import { NavLink, Outlet } from 'react-router-dom';
+import { Link, NavLink, Outlet } from 'react-router-dom';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
 
 
 const Dashboard = () => {
   // TODO get isAdmin value from the database 
-  const { user, loading } = useContext(AuthContext);
+  const { user, loading , logOut } = useContext(AuthContext);
+  const handelSingOut = () => {
+    logOut();
+    history.push('/');
+  };
   console.log(user)
   return (
-    <div className="min-h-screen bg-black flex font-Barlow">
+    <div className="min-h-screen bg-slate-500 flex font-Barlow">
     {/*dashboard  Sidebar */}
     <div className="w-64 bg-[#458682]  ml-5  pt-10 ">
-      <h1 className="text-2xl font-extrabold mb-4 w-64 px-8 text-black ">Surveyor Dashboard</h1>
+      <h1 className="text-2xl font-extrabold mb-4 w-64 px-8 text-black ">Task Dashboard</h1>
       <ul className="px-8 text-lg ">
        
           <li className="mb-2 bg-white p-1 text-center font-semibold rounded-lg">
             <NavLink
-              to="accesscontrol"
+              to="user"
               className={({ isActive, isPending }) =>
                 isPending ? "pending" : isActive ? " hover:text-[#458682] underline" : ""
               }
@@ -26,19 +30,19 @@ const Dashboard = () => {
           </li>
           <li className="mb-2 bg-white p-1 text-center font-semibold rounded-lg">
             <NavLink
-              to="accesscontrol"
+              to="mytask"
               className={({ isActive, isPending }) =>
                 isPending ? "pending" : isActive ? " hover:text-[#458682] underline" : ""
               }
             >
-              <i className="fa-solid fa-user-lock mr-2" style={{ color: ' #458682' }}></i> My Task
+                <i className="fa-solid fa-bars-progress mr-2" style={{ color: ' #458682' }}></i> My Task
             </NavLink>
           </li>
        
         
           <li className="mb-2 bg-white p-1 text-center font-semibold rounded-lg">
             <NavLink
-              to="surveycreation"
+              to="taskcreation"
               className={({ isActive, isPending }) =>
                 isPending ? "pending" : isActive ? " hover:text-[#458682] underline" : ""
               }
@@ -47,17 +51,15 @@ const Dashboard = () => {
             </NavLink>
           </li>
           <li className="mb-2 bg-white p-1 text-center font-semibold rounded-lg">
-          <a className="text-lg  text-black hover:text-[#458682]" href="#">
             <NavLink
-              to="/surveys"
+              to="alltask"
               className={({ isActive, isPending }) =>
                 isPending ? "pending" : isActive ? " hover:text-[#458682] underline" : ""
               }
             >
-              <i className="fa-solid fa-square-poll-vertical mr-2" style={{ color: ' #458682' }}></i> All Task
+              <i className="fa-brands fa-wpforms mr-2" style={{ color: ' #458682' }}></i> All Task
             </NavLink>
-          </a>
-        </li>
+          </li>
       </ul>
       <div className="divider"></div>
       <ul className="px-8">
@@ -73,6 +75,14 @@ const Dashboard = () => {
             </NavLink>
           </a>
         </li>
+        <li className="mb-2 bg-white p-1 text-center font-semibold rounded-lg">
+           <Link to={"/"}>
+            
+           <button onClick={handelSingOut} className=" text-lg  text-black hover:text-[#458682]">
+           <i className="fa-solid fa-arrow-right-from-bracket mr-2" style={{ color: ' #458682' }}></i>  Sing Out
+            </button></Link>
+        </li>
+        
         
       </ul>
     </div>
@@ -80,6 +90,8 @@ const Dashboard = () => {
     {/* Main Content */}
     <div className="flex-1">
       <h2 className="text-3xl font-bold text-[#458682] bg-white  p-8 mb-4 text-center">Welcome to the Dashboard!</h2>
+      
+      
       <Outlet></Outlet>
     </div>
   </div>

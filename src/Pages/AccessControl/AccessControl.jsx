@@ -5,7 +5,6 @@ import Swal from 'sweetalert2';
 const AccessControl = () => {
   
   const [users, setUsers] = useState([]);
-  const [selectedRole, setSelectedRole] = useState(null);
 
   const fetchData = async () => {
     try {

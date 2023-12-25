@@ -13,8 +13,8 @@ import Registrations from "../Pages/Registrations/Registrations";
 import Dashboard from "../Compunents/Layout/Dashboard";
 import AccessControl from "../Pages/AccessControl/AccessControl";
 import TaskCreation from "../Pages/TaskCreation/TaskCreation";
-import AllTask from "../Pages/AllTask/AllTask";
 import MyTask from "../Pages/MyTask/MyTask";
+import AllTask from "../Pages/AllTask/AllTask";
 const router = createBrowserRouter([
     {
       path: "/",
@@ -57,17 +57,18 @@ const router = createBrowserRouter([
         element:<TaskCreation></TaskCreation> ,
       },
       {
-        path: "accesscontrol",
+        path: "user",
        element:<AccessControl></AccessControl>,
+      },
+      
+      {
+        path:"dashboard/mytask",
+        element:<MyTask></MyTask>,
       },
       {
         path:"alltask",
         element:<AllTask></AllTask>,
-      },
-      {
-        path:"mytask",
-        element:<MyTask></MyTask>,
-      },
+      }
     ],
   },
  
