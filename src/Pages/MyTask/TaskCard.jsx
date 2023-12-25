@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
 
@@ -7,7 +7,7 @@ const TaskCard = ({tasks,setTasks}) => {
     const { user } = useContext(AuthContext);
     const [userEmail, setUserEmail] = useState('');
 
-  const { _id,  description,  taskTitle, deadline, priority,  } = tasks || {};
+  const { _id,  description, creatorEmail,  taskTitle, deadline, priority,  } = tasks || {};
   
   useEffect(() => {
     // Check if user is defined and has an email property
@@ -29,7 +29,7 @@ const TaskCard = ({tasks,setTasks}) => {
       confirmButtonText: 'Yes, delete it!'
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(` http://localhost:4200/tasks/${_id}`, {
+        fetch(` https://jobtask-scctechnovision-sever.vercel.app/tasks/${_id}`, {
           method: 'DELETE'
         })
           .then(res => res.json())
@@ -62,7 +62,7 @@ const TaskCard = ({tasks,setTasks}) => {
 
             
 
-            <div className="mb-4 md:mb-0 w-80">
+            <div className="mb-4 md:mb-0 w-72">
               <span className="text-gray-600 font-bold">
                 Description
                 <br />
@@ -74,24 +74,24 @@ const TaskCard = ({tasks,setTasks}) => {
               <span className="text-gray-600 font-bold text-lg">
                 Deadline <br />
               </span>
-              <span className="font-extrabold">{deadline}</span>
+              <span className="font-bold text-sm">{deadline}</span>
             </div>
             <div className="mb-4 md:mb-0">
-              <span className="text-gray-600 font-bold text-lg">
+              <span className="text-gray-600 font-bold text-base">
                 Priority<br />
               </span>
               <span className="font-extrabold">{priority}</span>
             </div>
-            <div className="flex gap-4 items-center">
+            <div className="flex gap-2 items-center">
               <i className="fa-regular fa-bookmark" style={{ color: "#244034" }}></i>
 
-              <div className="flex justify-center gap-4">
-                <Link to={`/updatepost/${_id}`}>
-                <button className="bg-[#198754] hover:bg-[#00bf58] text-white px-8 py-2 rounded-xl text-sm">
+              <div className="flex justify-center gap-2">
+                <NavLink to={`updatepost/${_id}`}>
+                <button className="bg-[#546082] hover:bg-[#3b4357] text-white px-3 py-2 rounded-xl text-sm">
                   Update
                 </button>
-                </Link>
-                <button onClick={handelDelete} className="bg-[#198754] hover:bg-[#00bf58] text-white px-8 py-2 rounded-xl text-sm">
+                </NavLink>
+                <button onClick={handelDelete} className="bg-[#546082] hover:bg-[#3b4357] text-white px-3 py-2 rounded-xl text-sm">
                   Delete
                 </button>
               </div>

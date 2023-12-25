@@ -12,7 +12,7 @@ const Dashboard = () => {
   };
   console.log(user)
   return (
-    <div className="min-h-screen bg-slate-500 flex font-Barlow">
+    <div className=" bg-slate-500 flex font-Barlow">
     {/*dashboard  Sidebar */}
     <div className="w-64 bg-[#458682]  ml-5  pt-10 ">
       <h1 className="text-2xl font-extrabold mb-4 w-64 px-8 text-black ">Task Dashboard</h1>
@@ -30,7 +30,7 @@ const Dashboard = () => {
           </li>
           <li className="mb-2 bg-white p-1 text-center font-semibold rounded-lg">
             <NavLink
-              to="/dashboard/mytask"
+              to="mytask"
               className={({ isActive, isPending }) =>
                 isPending ? "pending" : isActive ? " hover:text-[#458682] underline" : ""
               }

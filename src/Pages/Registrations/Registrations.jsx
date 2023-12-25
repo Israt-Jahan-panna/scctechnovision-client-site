@@ -4,7 +4,7 @@ import {
     updateProfile,
   } from "firebase/auth";
   import { useContext, useState } from "react";
-  import { Link } from "react-router-dom";
+  import { Link, useLocation, useNavigate } from "react-router-dom";
 import app from "../../Firebase/firebase.config";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 import Swal from "sweetalert2";
@@ -12,6 +12,8 @@ import Swal from "sweetalert2";
   const auth = getAuth(app);
   
   const Registrations = () => {
+    const location = useLocation();
+    const navigate = useNavigate();
     const [registerError, setRegisterError] = useState("");
     const [sucess, setSucess] = useState("");
     const { createUser } = useContext(AuthContext)|| {};
@@ -43,7 +45,13 @@ import Swal from "sweetalert2";
   
           // Set the default role (e.g., "user")
           const defaultRole = "user";
+  // navigation
+  if (location?.state) {
+    navigate(location.state);
+  } else {
   
+    navigate('/');
+  }
           // Update the user's display name and role
           updateProfile(user, { displayName: name, role: defaultRole })
             .then(() => {
@@ -56,7 +64,7 @@ import Swal from "sweetalert2";
               const users = { email, name, role: defaultRole };
   
               // Making a POST request to your server to add the user
-              fetch("http://localhost:4200/users", {
+              fetch("https://jobtask-scctechnovision-sever.vercel.app/users", {
                 method: "POST",
                 headers: {
                   "Content-Type": "application/json",

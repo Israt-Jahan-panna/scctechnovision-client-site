@@ -63,7 +63,7 @@ const router = createBrowserRouter([
       },
       
       {
-        path:"/dashboard/mytask",
+        path:"mytask",
         element:<MyTask></MyTask>,
       },
       {
@@ -71,8 +71,9 @@ const router = createBrowserRouter([
         element:<AllTask></AllTask>,
       },
       {
-        path:"dashboard/updatetask",
+        path:"mytask/updatepost/:id",
         element:<UpdateTask></UpdateTask>,
+        loader: ({params}) => fetch(`  https://jobtask-scctechnovision-sever.vercel.app/tasks/${params.id}`)
       }
     ],
   },

@@ -8,7 +8,7 @@ const AccessControl = () => {
 
   const fetchData = async () => {
     try {
-      const response = await fetch('http://localhost:4200/users');
+      const response = await fetch('https://jobtask-scctechnovision-sever.vercel.app/users');
       if (!response.ok) {
         throw new Error('Network response was not ok');
       }

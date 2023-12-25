@@ -32,7 +32,7 @@ const TaskCreation = () => {
         creatorEmail
       };
       // Send data to the server
-      fetch("http://localhost:4200/tasks", {
+      fetch("https://jobtask-scctechnovision-sever.vercel.app/tasks", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -50,7 +50,7 @@ const TaskCreation = () => {
               confirmButtonText: "Okay",
             }).then(() => {
               // Redirect to /mytask
-              window.location.href = "/dashboard/mytask";
+              window.location.href = "mytask";
             });
           }
         })
@@ -78,7 +78,7 @@ const TaskCreation = () => {
                 <div className="lg:col-span-2">
                   <div className="grid gap-4 gap-y-2 text-lg grid-cols-1 md:grid-cols-2">
                   <div className="md:col-span-2 text-black">
-                      <label htmlFor="jobTitle">Email of the Employee</label>
+                      <label htmlFor="taskTitle">Email of the Employee</label>
                       <input
                         name="creatorEmail"
                         id="creatorEmail"

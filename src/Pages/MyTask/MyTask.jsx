@@ -4,11 +4,11 @@ import TaskCard from './TaskCard';
 const MyTask = () => {
     const [tasks, setTasks] = useState([]);
     useEffect(() => {
-        fetch(" http://localhost:4200/tasks")
+        fetch(" https://jobtask-scctechnovision-sever.vercel.app/tasks")
           .then((res) => res.json())
           .then((data) => setTasks(data));
       });
-      console.log(tasks);
+      // console.log(tasks);
     return (
         <div>
            <div className="">
