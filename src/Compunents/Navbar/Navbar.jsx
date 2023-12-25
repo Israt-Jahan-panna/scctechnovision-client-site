@@ -4,9 +4,11 @@ import { AuthContext } from '../../AuthProvider/AuthProvider';
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext) || {};
+  console.log(user)
 
   const handelSingOut = () => {
     logOut();
+    history.push('/');
   };
 
   const [isDropdownOpen, setDropdownOpen] = useState(false);
@@ -44,14 +46,14 @@ const Navbar = () => {
               className="menu menu-sm dropdown-content mt-3 z-[1] p-2   w-52"
             >
                <li>
-            <a className="text-lg  text-black hover:text-[#e6e641e7]" href="#">
+            <a className="text-lg  text-black hover:text-[#507184e7]" href="#">
               <NavLink
                 to="/"
                 className={({ isActive, isPending }) =>
                   isPending
                     ? "pending"
                     : isActive
-                    ? " hover:text-[#e6e641e7] underline"
+                    ? " hover:text-[#507184e7] underline"
                     : ""
                 }
               >
@@ -61,14 +63,14 @@ const Navbar = () => {
           </li>
             
           <li>
-            <a className="text-lg  text-black hover:text-[#e6e641e7]" href="#">
+            <a className="text-lg  text-black hover:text-[#507184e7]" href="#">
               <NavLink
                 to="/feedback"
                 className={({ isActive, isPending }) =>
                   isPending
                     ? "pending"
                     : isActive
-                    ? " hover:text-[#e6e641e7] underline"
+                    ? " hover:text-[#507184e7] underline"
                     : ""
                 }
               >
@@ -78,14 +80,14 @@ const Navbar = () => {
           </li>
             
           <li>
-            <a className="text-lg  text-black hover:text-[#e6e641e7]" href="#">
+            <a className="text-lg  text-black hover:text-[#507184e7]" href="#">
               <NavLink
                 to="/features"
                 className={({ isActive, isPending }) =>
                   isPending
                     ? "pending"
                     : isActive
-                    ? " hover:text-[#e6e641e7] underline"
+                    ? " hover:text-[#507184e7] underline"
                     : ""
                 }
               >
@@ -93,31 +95,16 @@ const Navbar = () => {
               </NavLink>
             </a>
           </li>
+          
           <li>
-            <a className="text-lg  text-black hover:text-[#e6e641e7]" href="#">
-              <NavLink
-                to="/dashboard"
-                className={({ isActive, isPending }) =>
-                  isPending
-                    ? "pending"
-                    : isActive
-                    ? " hover:text-[#e6e641e7] underline"
-                    : ""
-                }
-              >
-               Dashboard
-              </NavLink>
-            </a>
-          </li>
-          <li>
-            <a className="text-lg  text-black hover:text-[#e6e641e7]" href="#">
+            <a className="text-lg  text-black hover:text-[#507184e7]" href="#">
               <NavLink
                 to="/team"
                 className={({ isActive, isPending }) =>
                   isPending
                     ? "pending"
                     : isActive
-                    ? " hover:text-[#e6e641e7] underline"
+                    ? " hover:text-[#507184e7] underline"
                     : ""
                 }
               >
@@ -125,7 +112,26 @@ const Navbar = () => {
               </NavLink>
             </a>
           </li>
-         
+          <li>
+           {
+            user ? (<a className="text-lg font-bold text-black hover:text-[#507184e7]" href="#">
+            <NavLink
+                to="/dashboard"
+                className={({ isActive, isPending }) =>
+                  isPending
+                    ? "pending"
+                    : isActive
+                    ? " hover:text-[#507184e7] underline"
+                    : ""
+                }
+              >
+               Dashboard
+              </NavLink>
+            </a>) : (
+              <h1></h1>
+            )
+           }
+          </li>
             </ul>}
             
           </div>
@@ -134,14 +140,14 @@ const Navbar = () => {
         <div className="navbar hidden lg:flex items-center">
           <ul className="gap-10 menu-horizontal ">
           <li>
-            <a className="text-lg font-bold w-10 text-black hover:text-[#e6e641e7]" href="#">
+            <a className="text-lg font-bold w-10 text-black hover:text-[#507184e7]" href="#">
               <NavLink
                 to="/"
                 className={({ isActive, isPending }) =>
                   isPending
                     ? "pending"
                     : isActive
-                    ? " hover:text-[#e6e641e7] underline"
+                    ? " hover:text-[#507184e7] underline"
                     : ""
                 }
               >
@@ -151,14 +157,14 @@ const Navbar = () => {
           </li>
           
           <li>
-            <a className="text-lg font-bold text-black hover:text-[#e6e641e7]" href="#">
+            <a className="text-lg font-bold text-black hover:text-[#507184e7]" href="#">
               <NavLink
                 to="/feedback"
                 className={({ isActive, isPending }) =>
                   isPending
                     ? "pending"
                     : isActive
-                    ? " hover:text-[#e6e641e7] underline"
+                    ? " hover:text-[#507184e7] underline"
                     : ""
                 }
               >
@@ -170,14 +176,14 @@ const Navbar = () => {
          
           
           <li>
-            <a className="text-lg font-bold text-black hover:text-[#e6e641e7]" href="#">
+            <a className="text-lg font-bold text-black hover:text-[#507184e7]" href="#">
               <NavLink
                 to="/features"
                 className={({ isActive, isPending }) =>
                   isPending
                     ? "pending"
                     : isActive
-                    ? " hover:text-[#e6e641e7] underline"
+                    ? " hover:text-[#507184e7] underline"
                     : ""
                 }
               >
@@ -187,30 +193,14 @@ const Navbar = () => {
           </li>
 
           <li>
-            <a className="text-lg font-bold text-black hover:text-[#e6e641e7]" href="#">
-            <NavLink
-                to="/dashboard"
-                className={({ isActive, isPending }) =>
-                  isPending
-                    ? "pending"
-                    : isActive
-                    ? " hover:text-[#e6e641e7] underline"
-                    : ""
-                }
-              >
-               Dashboard
-              </NavLink>
-            </a>
-          </li>
-          <li>
-            <a className="text-lg font-bold text-black hover:text-[#e6e641e7]" href="#">
+            <a className="text-lg font-bold text-black hover:text-[#507184e7]" href="#">
               <NavLink
                 to="/team"
                 className={({ isActive, isPending }) =>
                   isPending
                     ? "pending"
                     : isActive
-                    ? " hover:text-[#e6e641e7] underline"
+                    ? " hover:text-[#507184e7] underline"
                     : ""
                 }
               >
@@ -219,6 +209,26 @@ const Navbar = () => {
             </a>
           </li>
          
+          <li>
+           {
+            user ? (<a className="text-lg font-bold text-black hover:text-[#507184e7]" href="#">
+            <NavLink
+                to="/dashboard"
+                className={({ isActive, isPending }) =>
+                  isPending
+                    ? "pending"
+                    : isActive
+                    ? " hover:text-[#507184e7] underline"
+                    : ""
+                }
+              >
+               Dashboard
+              </NavLink>
+            </a>) : (
+              <h1></h1>
+            )
+           }
+          </li>
           </ul>
         </div>
         {user ? (
@@ -226,19 +236,17 @@ const Navbar = () => {
           ">
             <img className="rounded-sm w-8 h-12" src={user.photoURL} alt="" />
             <p className="text-xs ">{user.displayName}</p>
-           <Link to={"/home"}>
-           <button onClick={handelSingOut} className=" mb-2 rounded-lg bg-gradient-to-tr bg-[#e6e641e7] p-2 lg:py-2 lg:px-6  text-xs  uppercase text-black shadow-md   transition-all hover:shadow-lg   active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none">
+           <Link to={"/"}>
+           <button onClick={handelSingOut} className=" mb-2 rounded-lg bg-gradient-to-tr bg-slate-400 p-2 lg:py-2 lg:px-6  text-xs  uppercase text-white shadow-md   transition-all hover:shadow-lg   active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none">
               Sing Out
             </button></Link>
           </div>
         ) : (
           <div className="navbar-end  gap-4 
           ">
-            <Link to={"/registration"}>
-              <a className=" mb-2  rounded-lg bg-gradient-to-tr bg-[#d8d8d3e7] p-2 lg:py-2 lg:px-6  text-xs  uppercase text-black shadow-md   transition-all hover:shadow-lg   active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none">Registration</a>
-            </Link>
+            
             <Link to={"/login"}>
-              <a className=" mb-2  rounded-lg bg-gradient-to-tr bg-[#d8d8d3e7] p-2 lg:py-2 lg:px-6  text-xs  uppercase text-black shadow-md   transition-all hover:shadow-lg   active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none">Log In</a>
+              <a className=" mb-2  rounded-lg bg-gradient-to-tr bg-slate-400 p-2 lg:py-2 lg:px-6  text-xs  uppercase text-white shadow-md   transition-all hover:shadow-lg   active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none">Log In</a>
             </Link>
           </div>
         )}

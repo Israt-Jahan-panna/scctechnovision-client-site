@@ -3,11 +3,13 @@ import React, { createContext, useEffect, useState } from 'react';
 import app from '../Firebase/firebase.config';
 
 
-const auth = getAuth(app)
+
+const auth = getAuth(app);
 
 export const AuthContext = createContext(null);
 
 const AuthProvider = ({children}) => {
+    
     const [user , setUser] =useState(null);
     const [loading , setLoading ] = useState(true);
 

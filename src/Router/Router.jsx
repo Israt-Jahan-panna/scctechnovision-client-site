@@ -8,6 +8,13 @@ import Home from "../Pages/Home/Home";
 import Team from "../Pages/Team/Team";
 import ClientsSay from "../Pages/ClientsSay/ClientsSay";
 import Features from "../Pages/Features/Features";
+import Login from "../Pages/Login/Login";
+import Registrations from "../Pages/Registrations/Registrations";
+import Dashboard from "../Compunents/Layout/Dashboard";
+import AccessControl from "../Pages/AccessControl/AccessControl";
+import TaskCreation from "../Pages/TaskCreation/TaskCreation";
+import AllTask from "../Pages/AllTask/AllTask";
+import MyTask from "../Pages/MyTask/MyTask";
 const router = createBrowserRouter([
     {
       path: "/",
@@ -30,7 +37,37 @@ const router = createBrowserRouter([
       {
         path: "/features",
         element:<Features></Features>,
+      },
+      {
+        path: "/login",
+        element:<Login></Login>,
+      },
+      {
+        path: "/registration",
+        element:<Registrations></Registrations>,
       }
+    ],
+  },
+  {
+    path: "dashboard",
+    element:<Dashboard></Dashboard>,
+    children: [
+      {
+        path: "taskcreation",
+        element:<TaskCreation></TaskCreation> ,
+      },
+      {
+        path: "accesscontrol",
+       element:<AccessControl></AccessControl>,
+      },
+      {
+        path:"alltask",
+        element:<AllTask></AllTask>,
+      },
+      {
+        path:"mytask",
+        element:<MyTask></MyTask>,
+      },
     ],
   },
  
