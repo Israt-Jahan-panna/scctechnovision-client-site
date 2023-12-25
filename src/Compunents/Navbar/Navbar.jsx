@@ -16,7 +16,7 @@ const Navbar = () => {
     setDropdownOpen(!isDropdownOpen);
   };
   return (
-    <div className="max-w-[1600px] mx-auto font-Barlow">
+    <div className="max-w-[1600px] mx-auto font-OpenSans">
       <div className="navbar bg-white w-full shadow-md rounded-lg ">
         <div className="navbar-start">
         <div className="flex items-center h-5 w-52">
@@ -63,7 +63,7 @@ const Navbar = () => {
           <li>
             <a className="text-lg  text-black hover:text-[#e6e641e7]" href="#">
               <NavLink
-                to="/blogs"
+                to="/feedback"
                 className={({ isActive, isPending }) =>
                   isPending
                     ? "pending"
@@ -72,7 +72,7 @@ const Navbar = () => {
                     : ""
                 }
               >
-              Blogs 
+             FeedBack 
               </NavLink>
             </a>
           </li>
@@ -153,7 +153,7 @@ const Navbar = () => {
           <li>
             <a className="text-lg font-bold text-black hover:text-[#e6e641e7]" href="#">
               <NavLink
-                to="/blogs"
+                to="/feedback"
                 className={({ isActive, isPending }) =>
                   isPending
                     ? "pending"
@@ -162,7 +162,7 @@ const Navbar = () => {
                     : ""
                 }
               >
-                Blogs
+               FeedBack
               </NavLink>
             </a>
           </li>
