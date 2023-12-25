@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Banner = () => {
   return (
@@ -21,7 +22,8 @@ const Banner = () => {
               <br />
               digital transformation together..
             </p>
-            <button className="btn bg-white">View All Solutions</button>
+            <Link to={"/login"}>
+            <button className="btn bg-white">Let’s Explore”</button></Link>
           </div>
         </div>
       </div>

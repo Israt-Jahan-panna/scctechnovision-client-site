@@ -3,7 +3,7 @@ import React from "react";
 const Team = () => {
   return (
     <div className="font-OpenSans">
-      <div className=" mt-9 ">
+      <div className=" my-9 ">
         <h2 className="">
           {" "}
           <span className="bg-[#F2E29E] px-4 py-2 rounded-md">

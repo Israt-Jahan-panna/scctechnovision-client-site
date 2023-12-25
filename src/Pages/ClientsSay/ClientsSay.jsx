@@ -8,7 +8,7 @@ const ClientsSay = () => {
   return (
     <div className=" mt-10 ">
       
-      <div className="mt-8 lg:px-28 lg:py-10 p-5 bg-[#f2f0f0] rounded-sm">
+      <div className="mt-8 lg:px-28 lg:py-10 p-5 bg-[#F8F7F4] rounded-sm">
       <div>
         <h3 className="lg:text-3xl text-xl font-bold">What Our Clients Say</h3>
       </div>

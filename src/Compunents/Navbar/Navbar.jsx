@@ -226,9 +226,10 @@ const Navbar = () => {
           ">
             <img className="rounded-sm w-8 h-12" src={user.photoURL} alt="" />
             <p className="text-xs ">{user.displayName}</p>
-            <button onClick={handelSingOut} className=" mb-2 rounded-lg bg-gradient-to-tr bg-[#e6e641e7] p-2 lg:py-2 lg:px-6  text-xs  uppercase text-black shadow-md   transition-all hover:shadow-lg   active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none">
+           <Link to={"/home"}>
+           <button onClick={handelSingOut} className=" mb-2 rounded-lg bg-gradient-to-tr bg-[#e6e641e7] p-2 lg:py-2 lg:px-6  text-xs  uppercase text-black shadow-md   transition-all hover:shadow-lg   active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none">
               Sing Out
-            </button>
+            </button></Link>
           </div>
         ) : (
           <div className="navbar-end  gap-4 

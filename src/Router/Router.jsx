@@ -7,6 +7,7 @@ import Error from "../Pages/Error/Error";
 import Home from "../Pages/Home/Home";
 import Team from "../Pages/Team/Team";
 import ClientsSay from "../Pages/ClientsSay/ClientsSay";
+import Features from "../Pages/Features/Features";
 const router = createBrowserRouter([
     {
       path: "/",
@@ -25,6 +26,10 @@ const router = createBrowserRouter([
       {
         path: "/feedback",
         element:<ClientsSay></ClientsSay>,
+      },
+      {
+        path: "/features",
+        element:<Features></Features>,
       }
     ],
   },
